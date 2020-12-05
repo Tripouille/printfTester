@@ -19,7 +19,12 @@ make v[category] = launch associated category with valgrind ex: make vs
 
 make [category] [test number] = launch associated test in category ex: make s 42  
 make v[category] [test number] = launch associated test in category with valgrind ex: make vs 42  
- 
+
+X = upperx  
+% = percent  
+
+You can adjust the timeout limit in makefile for faster tests (reduce) or if you timeout (increase).
+![alt text](https://i.imgur.com/RGTqT64.png)  
 
 # Outputs
 
