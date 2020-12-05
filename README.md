@@ -23,9 +23,8 @@ make v[category] [test number] = launch associated test in category with valgrin
 
 # Outputs
 
-![alt text](https://i.imgur.com/EC3TMXZ.png)
-![alt text](https://i.imgur.com/Sqz3XoI.png)
- 
+![alt text](https://i.imgur.com/mYnPLuA.png)
+
 
 # Report bugs / Improvement
 Contact me on slack or discord : jgambard
