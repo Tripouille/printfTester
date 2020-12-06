@@ -1,4 +1,4 @@
-TIMEOUT_US 		= 50000 #if you timeout you can try to increase this value
+TIMEOUT_US 		= 150000 #if you timeout you can try to increase this value
 
 .DEFAULT_GOAL	:= vm
 SHELL			= bash
