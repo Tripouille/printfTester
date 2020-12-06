@@ -1,4 +1,4 @@
-TIMEOUT_US 		= 100000 #if you timeout you can try to increase this value
+TIMEOUT_US 		= 50000 #if you timeout you can try to increase this value
 
 .DEFAULT_GOAL	:= vm
 SHELL			= bash
@@ -7,7 +7,7 @@ UTILS_PATH		= utils/
 UTILS			= $(addprefix $(UTILS_PATH), sigsegv.cpp color.cpp check.cpp)
 
 TESTS_PATH		= tests/
-MANDATORY		= c s p d i u x upperx percent
+MANDATORY		= c s p d i u x upperx percent mix
 VMANDATORY		= $(addprefix v, $(MANDATORY))
 
 CC				= clang++ -std=c11 -Wno-everything
