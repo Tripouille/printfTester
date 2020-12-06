@@ -8,7 +8,7 @@ extern "C"
 #include "sigsegv.hpp"
 #include "check.hpp"
 #include "print.hpp"
-#define TEST_LIMIT 29
+#define TEST_LIMIT 33
 
 int iTest = 1;
 bool showTest = false;
@@ -55,7 +55,11 @@ int main(int ac, char ** av)
 	if (ac == 1 || testNumber == 26) print("%c", -129);
 	if (ac == 1 || testNumber == 27) print("%c", 128);
 	if (ac == 1 || testNumber == 28) print("%-*c", 10, "1");
-	if (ac == 1 || testNumber == 29) print("%-*c", -10, "1");
+	if (ac == 1 || testNumber == 29) print(" -%*c* -%-*c* ", -2, 0, 2, 0);
+	if (ac == 1 || testNumber == 30) print(" -%-*c* -%-*c* ", 2, 0, -2, 0);
+	if (ac == 1 || testNumber == 31) print(" -%*c* -%-*c* ", -1, 0, 1, 0);
+	if (ac == 1 || testNumber == 32) print(" -%-*c* -%-*c* ", 2, 0, -2, 0);
+	if (ac == 1 || testNumber == 33) print(" -%-2c* -%2c* ", 0, 0);
 	cout << ENDL;
 	return (0);
 }
