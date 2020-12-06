@@ -10,9 +10,9 @@ TESTS_PATH		= tests/
 MANDATORY		= c s p d i u x upperx percent
 VMANDATORY		= $(addprefix v, $(MANDATORY))
 
-CC			= clang++ -std=c11 -Wno-everything
-CFLAGS		= -g3 -std=c++11 -I utils/ -I.. -I`find .. -regex ".*/.*\.h" | grep -oh ".*\/"` #-I
-VALGRIND	= valgrind -q --leak-check=full
+CC				= clang++ -std=c11 -Wno-everything
+CFLAGS			= -g3 -std=c++11 -I utils/ -I.. $(addprefix -I, $(shell find .. -regex ".*/.*\.h" | grep -oh ".*\/"))
+VALGRIND		= valgrind -q --leak-check=full
 
 TEST_NUMBER := $(wordlist 2, $(words $(MAKECMDGOALS)), $(MAKECMDGOALS))
 $(eval $(TEST_NUMBER):;@:)
