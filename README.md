@@ -1,7 +1,7 @@
-# printfTester
+# printfTester (2019+)
 
 
-Clone this tester in your printf repository. (works on linux and mac)  
+Clone this tester in your printf repository. (works on linux and mac, no undefined behavior tests, handles timeout and sigsegv)  
 ![alt text](https://i.imgur.com/qRfDYuU.png)
 
 
