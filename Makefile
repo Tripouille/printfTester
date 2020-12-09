@@ -10,6 +10,9 @@ TESTS_PATH		= tests/
 MANDATORY		= c s p d i u x upperx percent mix
 VMANDATORY		= $(addprefix v, $(MANDATORY))
 
+BONUS			= n
+VBONUS			= $(addprefix v, $(BONUS))
+
 CC				= clang++ -std=c11 -Wno-everything
 CFLAGS			= -g3 -std=c++11 -I utils/ -I.. $(addprefix -I, $(shell find .. -regex ".*/.*\.h" | grep -oh ".*\/"))
 VALGRIND		= valgrind -q --leak-check=full
@@ -21,6 +24,12 @@ $(MANDATORY): %: mandatory_start
 	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) -fsanitize=address $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf && ./a.out $(TEST_NUMBER) && rm -f a.out
 
 $(VMANDATORY): v%: mandatory_start
+	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf && $(VALGRIND) ./a.out $(TEST_NUMBER) && rm -f a.out
+
+$(BONUS): %: bonus_start
+	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) -fsanitize=address $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf && ./a.out $(TEST_NUMBER) && rm -f a.out
+
+$(VBONUS): v%: bonus_start
 	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf && $(VALGRIND) ./a.out $(TEST_NUMBER) && rm -f a.out
 
 mandatory_start: update message
