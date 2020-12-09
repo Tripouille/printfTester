@@ -40,7 +40,7 @@ int main(int ac, char ** av)
 	if (ac == 1 || testNumber == 11) checkn("%%n%.s%p%n ", "42", (void*)1);
 	if (ac == 1 || testNumber == 12) checkn("%.s%n", "12345");
 	if (ac == 1 || testNumber == 13) checkn("%s%c42%n", "12345", 0);
-	if (ac == 1 || testNumber == 14) checkn("%s%c42%n", "12345", 0);
+	if (ac == 1 || testNumber == 14) checkn("%s%c%i42%n", "12345", 0, 42);
 	if (ac == 1 || testNumber == 15) checkn("%s%c42%n", "12345", 'A');
 	if (ac == 1 || testNumber == 16) checkn("%s%d42%n", "12345", -42);
 	if (ac == 1 || testNumber == 17) checkn("%s%X42%n", "12345", 42);
