@@ -14,25 +14,24 @@ int pipeOut, stdOut;
 template<typename... Args>
 void print(const char * s, Args... args)
 {
-    char	printfStr[B_SIZE], ft_printfStr[B_SIZE];
-    int		printfRet, ft_printfRet;
-	char	eof = EOF; 
-	int		readReturn;
-	int		p[2];
-
 	pid_t actualTest = fork(); stdOut = 1;
 	setbuf(stdout, NULL);
 	if (actualTest < 0)
 		throw std::runtime_error("I have dropped my fork");
 	else if (actualTest == 0)
 	{
+		char	printfStr[B_SIZE], ft_printfStr[B_SIZE];
+		int		printfRet, ft_printfRet;
+		char	eof = EOF; 
+		int		readReturn;
+		int		p[2];
+
 		if (pipe(p) < 0)
 			throw std::runtime_error("pipe() failed");
-		stdOut = dup(1);
-		pipeOut = p[1]; dup2(pipeOut, 1);
+		stdOut = dup(1); pipeOut = p[1]; dup2(pipeOut, 1);
 	
 		printfRet = printf(s, args...); write(1, &eof, 1);
-		if ((readReturn = read(p[0], printfStr, B_SIZE - 1)) < 0)
+		if ((readReturn = read(p[0], printfStr, B_SIZE)) < 0)
 			throw std::runtime_error("read failed");
 		printfStr[readReturn - 1] = 0;
 		if (showTest)
@@ -42,8 +41,9 @@ void print(const char * s, Args... args)
 			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << ENDL;
 			dup2(pipeOut, 1);
 		}
+
 		ft_printfRet = ft_printf(s, args...); write(1, &eof, 1);
-		if ((readReturn = read(p[0], ft_printfStr, B_SIZE - 1)) < 0)
+		if ((readReturn = read(p[0], ft_printfStr, B_SIZE)) < 0)
 			throw std::runtime_error("read failed");
 		ft_printfStr[readReturn - 1] = 0;
 		close(p[0]); close(pipeOut); dup2(stdOut, 1);
@@ -74,11 +74,6 @@ void print(const char * s, Args... args)
 template<typename... Args>
 void checkn(const char * s, Args... args)
 {
-    char	printfStr[B_SIZE], ft_printfStr[B_SIZE];
-    int		printfRet, ft_printfRet;
-	char	eof = EOF; 
-	int		readReturn;
-	int		p[2];
 
 	pid_t actualTest = fork(); stdOut = 1;
 	setbuf(stdout, NULL);
@@ -86,14 +81,19 @@ void checkn(const char * s, Args... args)
 		throw std::runtime_error("I have dropped my fork");
 	else if (actualTest == 0)
 	{
-		int printfn, ft_printfn;
+		char	printfStr[B_SIZE], ft_printfStr[B_SIZE];
+		int		printfRet, ft_printfRet;
+		char	eof = EOF; 
+		int		readReturn;
+		int		p[2];
+		int		printfn, ft_printfn;
+	
 		if (pipe(p) < 0)
 			throw std::runtime_error("pipe() failed");
-		stdOut = dup(1);
-		pipeOut = p[1]; dup2(pipeOut, 1);
+		stdOut = dup(1); pipeOut = p[1]; dup2(pipeOut, 1);
 	
 		printfRet = printf(s, args..., &printfn); write(1, &eof, 1);
-		if ((readReturn = read(p[0], printfStr, B_SIZE - 1)) < 0)
+		if ((readReturn = read(p[0], printfStr, B_SIZE)) < 0)
 			throw std::runtime_error("read failed");
 		printfStr[readReturn - 1] = 0;
 		if (showTest)
@@ -103,8 +103,9 @@ void checkn(const char * s, Args... args)
 			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << " n = " << printfn << ENDL;
 			dup2(pipeOut, 1);
 		}
+		
 		ft_printfRet = ft_printf(s, args..., &ft_printfn); write(1, &eof, 1);
-		if ((readReturn = read(p[0], ft_printfStr, B_SIZE - 1)) < 0)
+		if ((readReturn = read(p[0], ft_printfStr, B_SIZE)) < 0)
 			throw std::runtime_error("read failed");
 		ft_printfStr[readReturn - 1] = 0;
 		close(p[0]); close(pipeOut); dup2(stdOut, 1);

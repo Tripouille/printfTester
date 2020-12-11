@@ -8,7 +8,7 @@ extern "C"
 #include "sigsegv.hpp"
 #include "check.hpp"
 #include "print.hpp"
-#define TEST_LIMIT 47
+#define TEST_LIMIT 77
 
 int iTest = 1;
 bool showTest = false;
@@ -51,9 +51,9 @@ int main(int ac, char ** av)
 	if (ac == 1 || testNumber == 22) print(" %05.3f %05.3f %05.3f ", 0.0, -1.0, 42.0);
 	if (ac == 1 || testNumber == 23) print(" %05.3f %05.3f %05.3f ", 42.0, 420.0, -420.0);
 	if (ac == 1 || testNumber == 24) print(" %f %f ", LONG_MIN * 1.0, LONG_MAX * 1.0);
-	if (ac == 1 || testNumber == 25) print(" %.32f %.32f ", 0.01234567890123456789012345678901, -0.01234567890123456789012345678901);
-	if (ac == 1 || testNumber == 26) print(" %32.32f %32.32f ", 0.01234567890123456789012345678901, -0.01234567890123456789012345678901);
-	if (ac == 1 || testNumber == 27) print(" %33.32f %33.32f ", 0.01234567890123456789012345678901, -0.01234567890123456789012345678901);
+	if (ac == 1 || testNumber == 25) print(" %.16f %.16f ", 0.01234567890123456789012345678901, -0.01234567890123456789012345678901);
+	if (ac == 1 || testNumber == 26) print(" %32.16f %32.16f ", 0.01234567890123456789012345678901, -0.01234567890123456789012345678901);
+	if (ac == 1 || testNumber == 27) print(" %33.16f %33.16f ", 0.01234567890123456789012345678901, -0.01234567890123456789012345678901);
 	if (ac == 1 || testNumber == 28) print(" %.f ", 42.101);
 	if (ac == 1 || testNumber == 29) print(" %f ", 0.101);
 	if (ac == 1 || testNumber == 30) print(" %10f ", 1.0 / 0);
@@ -74,6 +74,36 @@ int main(int ac, char ** av)
 	if (ac == 1 || testNumber == 45) print(" %020.20f ", 0.0 / 0);
 	if (ac == 1 || testNumber == 46) print(" %-020.20f ", 0.0 / 0);
 	if (ac == 1 || testNumber == 47) print(" %-20.f ", 0.0 / 0);
+	if (ac == 1 || testNumber == 48) print(" %f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 49) print(" %.f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 50) print(" %.1f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 51) print(" %.2f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 52) print(" %.16f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 53) print(" %-f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 54) print(" %-.f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 55) print(" %-.1f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 56) print(" %-.2f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 57) print(" %-.16f ", 1.0 / 1000);
+	if (ac == 1 || testNumber == 58) print(" %f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 59) print(" %.f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 60) print(" %.1f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 61) print(" %.2f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 62) print(" %.16f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 63) print(" %-f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 64) print(" %-.f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 65) print(" %-.1f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 66) print(" %-.2f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 67) print(" %-.16f ", 1.0 / 10000);
+	if (ac == 1 || testNumber == 68) print(" %f ", 1.0 / 100000);
+	if (ac == 1 || testNumber == 69) print(" %.f ", 1.0 / 100000);
+	if (ac == 1 || testNumber == 70) print(" %.1f ", 1.0 / 100000);
+	if (ac == 1 || testNumber == 71) print(" %.2f ", 1.0 / 100000);
+	if (ac == 1 || testNumber == 72) print(" %.16f ", 1.0 / 100000);
+	if (ac == 1 || testNumber == 73) print(" %-f ", 1.0 / 100000);
+	if (ac == 1 || testNumber == 74) print(" %-.f ", 1.0 / 100000);
+	if (ac == 1 || testNumber == 75) print(" %-.1f ", 1.0 / 100000);
+	if (ac == 1 || testNumber == 76) print(" %-.2f ", 1.0 / 100000);
+	if (ac == 1 || testNumber == 77) print(" %-.16f ", 1.0 / 100000);
 	cout << ENDL;
 	return (0);
 }
