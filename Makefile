@@ -1,6 +1,6 @@
 TIMEOUT_US 		= 150000 #if you timeout you can try to increase this value
 
-.DEFAULT_GOAL	:= vm
+.DEFAULT_GOAL	:= m
 SHELL			= bash
 
 UTILS_PATH		= utils/
