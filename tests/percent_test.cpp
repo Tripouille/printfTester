@@ -17,7 +17,7 @@ bool showTest = false;
 int main(int ac, char ** av)
 {
 	signal(SIGSEGV, sigsegv);
-	cout << FG_LYELLOW << "[%]" << RESET_ALL;
+	cout << FG_LYELLOW << "category: %" << RESET_ALL;
 	
 	testName = av[0];
 	if (ac != 1)
