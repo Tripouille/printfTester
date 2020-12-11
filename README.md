@@ -28,7 +28,7 @@ You can adjust the timeout limit in makefile for faster tests (reduce) or if you
 
 # Outputs
 
-![alt text](https://i.imgur.com/mYnPLuA.png)
+![alt text](https://i.imgur.com/FsgbPxO.png)
 
 
 # Report bugs / Improvement
