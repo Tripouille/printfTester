@@ -26,7 +26,6 @@ void printTestNumber(char * n, int limit)
 
 void showTestInfos(void)
 {
-	cerr << testName << endl;
 	cout << FG_MAGENTA << "args:      [";
 	std::ostringstream cmd; cmd << "cat tests/" << testName << ".cpp | grep \"TEST(" << testNumber << ",\" | cut -d \"(\" -f 3 | rev | cut -c4- | rev | tr -d '\n'";
 	system(cmd.str().c_str());
