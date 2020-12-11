@@ -21,16 +21,16 @@ TEST_NUMBER := $(wordlist 2, $(words $(MAKECMDGOALS)), $(MAKECMDGOALS))
 $(eval $(TEST_NUMBER):;@:)
 
 $(MANDATORY): %: mandatory_start
-	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) -fsanitize=address $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf && ./a.out $(TEST_NUMBER) && rm -f a.out
+	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) -fsanitize=address $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && ./$*_test $(TEST_NUMBER) && rm -f $*_test
 
 $(VMANDATORY): v%: mandatory_start
-	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf && $(VALGRIND) ./a.out $(TEST_NUMBER) && rm -f a.out
+	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && $(VALGRIND) ./$*_test $(TEST_NUMBER) && rm -f $*_test
 
 $(BONUS): %: bonus_start
-	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) -fsanitize=address $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf && ./a.out $(TEST_NUMBER) && rm -f a.out
+	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) -fsanitize=address $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && ./$*_test $(TEST_NUMBER) && rm -f $*_test
 
 $(VBONUS): v%: bonus_start
-	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf && $(VALGRIND) ./a.out $(TEST_NUMBER) && rm -f a.out
+	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && $(VALGRIND) ./$*_test $(TEST_NUMBER) && rm -f $*_test
 
 mandatory_start: update message
 	@tput setaf 6
@@ -55,9 +55,9 @@ vb: $(VBONUS)
 va: vm vb 
 
 clean:
-	make clean -C .. && rm -rf a.out
+	make clean -C .. && rm -rf *_test
 
 fclean:
-	make fclean -C .. && rm -rf a.out
+	make fclean -C .. && rm -rf *_test
 
 .PHONY:	mandatory_start m vm bonus_start b vb a va clean update message fclean

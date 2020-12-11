@@ -3,13 +3,35 @@
 # include <unistd.h>
 # include <string.h>
 # include <sys/wait.h>
+# include <sstream>
 # define B_SIZE 4096
+# define TEST(nb, test) {if (ac == 1 || testNumber == nb) test;}
 
 using namespace std;
 
-extern bool showTest;
 extern int iTest;
+extern int testNumber;
+extern char * testName;
+extern bool showTest;
 int pipeOut, stdOut;
+
+void printTestNumber(char * n, int limit)
+{
+	testNumber = atoi(n);
+	cout << FG_LYELLOW << ", number: " << testNumber << RESET_ALL;
+	if (testNumber == 0 || testNumber > limit)
+		throw std::runtime_error("invalid test number");
+	showTest = true;
+}
+
+void showTestInfos(void)
+{
+	cerr << testName << endl;
+	cout << FG_MAGENTA << "args:      [";
+	std::ostringstream cmd; cmd << "cat tests/" << testName << ".cpp | grep \"TEST(" << testNumber << ",\" | cut -d \"(\" -f 3 | rev | cut -c4- | rev | tr -d '\n'";
+	system(cmd.str().c_str());
+	cout << "]" << ENDL;
+}
 
 template<typename... Args>
 void print(const char * s, Args... args)
@@ -37,7 +59,7 @@ void print(const char * s, Args... args)
 		if (showTest)
 		{
 			dup2(stdOut, 1);
-			cout << RESET_ALL << "[\"" << s << "\"]" << ENDL;
+			showTestInfos();
 			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << ENDL;
 			dup2(pipeOut, 1);
 		}
@@ -70,7 +92,6 @@ void print(const char * s, Args... args)
 	++iTest;
 }
 
-
 template<typename... Args>
 void checkn(const char * s, Args... args)
 {
@@ -99,7 +120,7 @@ void checkn(const char * s, Args... args)
 		if (showTest)
 		{
 			dup2(stdOut, 1);
-			cout << RESET_ALL << "[\"" << s << "\"]" << ENDL;
+			showTestInfos();
 			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << " n = " << printfn << ENDL;
 			dup2(pipeOut, 1);
 		}

@@ -11,55 +11,51 @@ extern "C"
 #define TEST_LIMIT 33
 
 int iTest = 1;
+int testNumber;
+char * testName;
 bool showTest = false;
 int main(int ac, char ** av)
 {
-	int testNumber;
 	signal(SIGSEGV, sigsegv);
-	cout << FG_LYELLOW << "[c]" << RESET_ALL;
+	cout << FG_LYELLOW << "category: c" << RESET_ALL;
 	
+	testName = av[0];
 	if (ac != 1)
-	{
-		testNumber = atoi(av[1]);
-		cout << FG_LYELLOW << "[n°" << testNumber << "]" << RESET_ALL;
-		if (testNumber == 0 || testNumber > TEST_LIMIT)
-			throw std::runtime_error("invalid test number");
-		showTest = true;
-	}
+		printTestNumber(av[1], TEST_LIMIT);
 	cout << endl;
-	if (ac == 1 || testNumber == 1) print("%c", '0');
-	if (ac == 1 || testNumber == 2) print(" %c ", '0');
-	if (ac == 1 || testNumber == 3) print("10%c", '0');
-	if (ac == 1 || testNumber == 4) print("%10c", '0');
-	if (ac == 1 || testNumber == 5) print("-10%c", '0');
-	if (ac == 1 || testNumber == 6) print("%-10c", '0');
-	if (ac == 1 || testNumber == 7) print("%-10c", '0');
-	if (ac == 1 || testNumber == 8) print("%*c", 1, '0');
-	if (ac == 1 || testNumber == 9) print("%*c", 0, '0');
-	if (ac == 1 || testNumber == 10) print("%*c", 2, '0');
-	if (ac == 1 || testNumber == 11) print("%*c", -2, '0');
-	if (ac == 1 || testNumber == 12) print("%*c", 0, '0');
-	if (ac == 1 || testNumber == 13) print("%*c", 10, '0');
-	if (ac == 1 || testNumber == 14) print("%*c", -10, '0');
-	if (ac == 1 || testNumber == 15) print("%*c%*c", -10, '0', 10, '1');
-	if (ac == 1 || testNumber == 16) print("*%c%*c", '0', 10, '1');
-	if (ac == 1 || testNumber == 17) print("%*c%c*", -10, '0', '1');
-	if (ac == 1 || testNumber == 18) print("%-10c*",'0');
-	if (ac == 1 || testNumber == 19) print("%-10c%*c%c*",'0', 10, '1', '2');
-	if (ac == 1 || testNumber == 20) print("%c%c%c*",'0', '1', '2');
-	if (ac == 1 || testNumber == 21) print("%-c%-c%c*", 1, '0', 0);
-	if (ac == 1 || testNumber == 22) print("%c", '0' - 256);
-	if (ac == 1 || testNumber == 23) print("%c", '0' + 256);
-	if (ac == 1 || testNumber == 24) print("%c", 0);
-	if (ac == 1 || testNumber == 25) print("0%c", 0);
-	if (ac == 1 || testNumber == 26) print("%c", -129);
-	if (ac == 1 || testNumber == 27) print("%c", 128);
-	if (ac == 1 || testNumber == 28) print("%-*c", 10, "1");
-	if (ac == 1 || testNumber == 29) print(" -%*c* -%-*c* ", -2, 0, 2, 0);
-	if (ac == 1 || testNumber == 30) print(" -%-*c* -%-*c* ", 2, 0, -2, 0);
-	if (ac == 1 || testNumber == 31) print(" -%*c* -%-*c* ", -1, 0, 1, 0);
-	if (ac == 1 || testNumber == 32) print(" -%-*c* -%-*c* ", 2, 0, -2, 0);
-	if (ac == 1 || testNumber == 33) print(" -%-2c* -%2c* ", 0, 0);
+	TEST(1, print("%c", '0'));
+	TEST(2, print(" %c ", '0'));
+	TEST(3, print("10%c", '0'));
+	TEST(4, print("%10c", '0'));
+	TEST(5, print("-10%c", '0'));
+	TEST(6, print("%-10c", '0'));
+	TEST(7, print("%-10c", '0'));
+	TEST(8, print("%*c", 1, '0'));
+	TEST(9, print("%*c", 0, '0'));
+	TEST(10, print("%*c", 2, '0'));
+	TEST(11, print("%*c", -2, '0'));
+	TEST(12, print("%*c", 0, '0'));
+	TEST(13, print("%*c", 10, '0'));
+	TEST(14, print("%*c", -10, '0'));
+	TEST(15, print("%*c%*c", -10, '0', 10, '1'));
+	TEST(16, print("*%c%*c", '0', 10, '1'));
+	TEST(17, print("%*c%c*", -10, '0', '1'));
+	TEST(18, print("%-10c*",'0'));
+	TEST(19, print("%-10c%*c%c*",'0', 10, '1', '2'));
+	TEST(20, print("%c%c%c*",'0', '1', '2'));
+	TEST(21, print("%-c%-c%c*", 1, '0', 0));
+	TEST(22, print("%c", '0' - 256));
+	TEST(23, print("%c", '0' + 256));
+	TEST(24, print("%c", 0));
+	TEST(25, print("0%c", 0));
+	TEST(26, print("%c", -129));
+	TEST(27, print("%c", 128));
+	TEST(28, print("%-*c", 10, "1"));
+	TEST(29, print(" -%*c* -%-*c* ", -2, 0, 2, 0));
+	TEST(30, print(" -%-*c* -%-*c* ", 2, 0, -2, 0));
+	TEST(31, print(" -%*c* -%-*c* ", -1, 0, 1, 0));
+	TEST(32, print(" -%-*c* -%-*c* ", 2, 0, -2, 0));
+	TEST(33, print(" -%-2c* -%2c* ", 0, 0));
 	cout << ENDL;
 	return (0);
 }
