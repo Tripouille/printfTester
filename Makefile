@@ -55,9 +55,9 @@ vb: $(VBONUS)
 va: vm vb 
 
 clean:
-	make clean -C .. && rm -rf *_test
+	make clean -C .. && rm -rf *_test && rm -rf *_test.dSYM
 
 fclean:
-	make fclean -C .. && rm -rf *_test
+	make fclean -C .. && rm -rf *_test && rm -rf *_test.dSYM
 
 .PHONY:	mandatory_start m vm bonus_start b vb a va clean update message fclean
