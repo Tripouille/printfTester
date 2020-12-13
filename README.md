@@ -1,7 +1,7 @@
 # printfTester (2019+)
 
-
-Clone this tester in your printf repository. (works on linux and mac, no undefined behavior tests, handles timeout and sigsegv)  
+Tester for the project ft_printf of 42 school.  
+Clone this tester in your ft printf repository. (works on linux and mac, no undefined behavior tests, handles timeout and sigsegv)  
 ![alt text](https://i.imgur.com/qRfDYuU.png)
 
 
