@@ -8,7 +8,13 @@ extern "C"
 #include "sigsegv.hpp"
 #include "check.hpp"
 #include "print.hpp"
-#define TEST_LIMIT 33
+
+# ifdef __unix__
+# define TEST_LIMIT 33
+# endif
+# ifdef __APPLE__
+# define TEST_LIMIT 36
+# endif
 
 int iTest = 1;
 int testNumber;
@@ -56,6 +62,11 @@ int main(int ac, char ** av)
 	TEST(31, print("%.0s", ""));
 	TEST(32, print("%.1s", ""));
 	TEST(33, print(" %4.2s %-4.2s ", "123", "4567"));
+	# ifdef __APPLE__
+		TEST(34, print(" %-3.s ", NULL));
+		TEST(35, print(" %-9.1s ", NULL));
+		TEST(36, print(" %.*s ", -2, NULL));
+	# endif
 	cout << ENDL;
 	return (0);
 }
