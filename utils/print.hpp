@@ -6,6 +6,7 @@
 # include <sstream>
 # define B_SIZE 4096
 # define TEST(nb, test) {if (ac == 1 || testNumber == nb) test;}
+# define SUBCATEGORY(min, max, output) {if (testNumber >= min && testNumber <= max) output}
 
 using namespace std;
 
@@ -91,7 +92,7 @@ void print(const char * s, Args... args)
 	++iTest;
 }
 
-template<typename... Args>
+template<typename requiredType=int, typename... Args>
 void checkn(const char * s, Args... args)
 {
 
@@ -106,7 +107,7 @@ void checkn(const char * s, Args... args)
 		char	eof = EOF; 
 		int		readReturn;
 		int		p[2];
-		int		printfn, ft_printfn;
+		unsigned long long int printfn = -1 , ft_printfn = -1;
 	
 		if (pipe(p) < 0)
 			throw std::runtime_error("pipe() failed");
@@ -120,7 +121,7 @@ void checkn(const char * s, Args... args)
 		{
 			dup2(stdOut, 1);
 			showTestInfos();
-			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << " n = " << printfn << ENDL;
+			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << " n = " << static_cast<requiredType>(printfn) << ENDL;
 			dup2(pipeOut, 1);
 		}
 		
@@ -130,7 +131,11 @@ void checkn(const char * s, Args... args)
 		ft_printfStr[readReturn - 1] = 0;
 		close(p[0]); close(pipeOut); dup2(stdOut, 1);
 		if (showTest)
-			cout << FG_BLUE << "ft_printf: [" << ft_printfStr << "] = " << ft_printfRet << " n = " << ft_printfn << ENDL;
+		{
+			cout << FG_BLUE << "ft_printf: [" << ft_printfStr << "] = " << ft_printfRet << " n = " << static_cast<requiredType>(ft_printfn) << ENDL;
+			if (printfn == ft_printfn) cout << FG_GREEN << "cast:      [OK]" << ENDL;
+			else cout << FG_RED << "cast:      [KO]" << ENDL;
+		}
 		else
 			check(!strcmp(ft_printfStr, printfStr) && printfRet == ft_printfRet && printfn == ft_printfn);
 		exit(EXIT_SUCCESS);
