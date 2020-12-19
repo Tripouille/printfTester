@@ -8,7 +8,7 @@ extern "C"
 #include "sigsegv.hpp"
 #include "check.hpp"
 #include "print.hpp"
-#define TEST_LIMIT 104
+#define TEST_LIMIT 114
 
 int iTest = 1;
 int testNumber;
@@ -127,6 +127,16 @@ int main(int ac, char ** av)
 	TEST(102, print("%.0g", -2.35));
 	TEST(103, print("%.0g", 3.451));
 	TEST(104, print("%.0g", 3.456));
+	TEST(105, print("%.g", 42.42000000));
+	TEST(106, print("%.1g", 42.42000000));
+	TEST(107, print("%.2g", 42.42000000));
+	TEST(108, print("%.3g", 42.42000000));
+	TEST(109, print("%.4g", 42.42000000));
+	TEST(110, print("%.5g", 42.42000000));
+	TEST(111, print("%.13g", 42.420000000001699));
+	TEST(112, print("%.14g", 42.420000000001699));
+	TEST(113, print("%.15g", 42.420000000001699));
+	TEST(114, print("%.16g", 42.420000000001699));
 	cout << ENDL;
 	return (0);
 }
