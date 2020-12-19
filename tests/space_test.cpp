@@ -9,7 +9,6 @@ extern "C"
 #include "check.hpp"
 #include "print.hpp"
 #define TEST_LIMIT 143
-#define UCHAR_MIN (0)
 
 int iTest = 1;
 int testNumber;
