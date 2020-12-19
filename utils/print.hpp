@@ -121,7 +121,7 @@ void checkn(const char * s, Args... args)
 		{
 			dup2(stdOut, 1);
 			showTestInfos();
-			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << " n = " << static_cast<requiredType>(printfn) << ENDL;
+			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << " n = " << (unsigned long long int)static_cast<requiredType>(printfn) << ENDL;
 			dup2(pipeOut, 1);
 		}
 		
@@ -132,7 +132,7 @@ void checkn(const char * s, Args... args)
 		close(p[0]); close(pipeOut); dup2(stdOut, 1);
 		if (showTest)
 		{
-			cout << FG_BLUE << "ft_printf: [" << ft_printfStr << "] = " << ft_printfRet << " n = " << static_cast<requiredType>(ft_printfn) << ENDL;
+			cout << FG_BLUE << "ft_printf: [" << ft_printfStr << "] = " << ft_printfRet << " n = " << (unsigned long long int)static_cast<requiredType>(ft_printfn) << ENDL;
 			if (printfn == ft_printfn) cout << FG_GREEN << "cast:      [OK]" << ENDL;
 			else cout << FG_RED << "cast:      [KO]" << ENDL;
 		}
