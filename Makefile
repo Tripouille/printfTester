@@ -10,7 +10,7 @@ TESTS_PATH		= tests/
 MANDATORY		= c s p d i u x upperx percent mix
 VMANDATORY		= $(addprefix v, $(MANDATORY))
 
-BONUS			= n f g e l ll h hh sharp
+BONUS			= n f g e l ll h hh sharp space
 VBONUS			= $(addprefix v, $(BONUS))
 
 CC				= clang++ -std=c11 -Wno-everything
