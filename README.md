@@ -1,18 +1,18 @@
 # printfTester (2019+)
 
-Tester for the project ft_printf of 42 school.  
+Tester for the ft_printf project of 42 school.  
 Clone this tester in your ft printf repository. (works on linux and mac, no undefined behavior tests, handles timeout and sigsegv)  
 ![alt text](https://i.imgur.com/qRfDYuU.png)
 
 
 # Commands
 make m = launch mandatory tests  
-make b = launch bonus tests (coming soon)  
-make a = launch mandatory tests + bonus tests (coming soon)  
+make b = launch bonus tests  
+make a = launch mandatory tests + bonus tests
 
 make vm = launch mandatory tests with valgrind  
-make vb = launch bonus tests with valgrind (coming soon)  
-make va = launch mandatory tests + bonus tests with valgrind (coming soon)  
+make vb = launch bonus tests with valgrind 
+make va = launch mandatory tests + bonus tests with valgrind
 
 make [category] = launch associated category ex: make s  
 make v[category] = launch associated category with valgrind ex: make vs  
