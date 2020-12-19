@@ -30,7 +30,7 @@ int main(int ac, char ** av)
 	testName = av[0];
 	if (ac != 1)
 		printTestNumber(av[1], TEST_LIMIT);
-	SUBCATEGORY(1, 4,  cout << endl << FG_LGRAY << "subcategory: d" << RESET_ALL << endl;)
+	SUBCATEGORY(1, 4, cout << endl << FG_LGRAY << "subcategory: d" << RESET_ALL << endl;)
 	TEST(1, print(" %ld ", INT_MAX + 1));
 	TEST(2, print(" %ld ", INT_MIN - 1));
 	TEST(3, print(" %ld ", LONG_MAX + 1));
