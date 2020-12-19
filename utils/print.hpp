@@ -6,7 +6,7 @@
 # include <sstream>
 # define B_SIZE 4096
 # define TEST(nb, test) {if (ac == 1 || testNumber == nb) test;}
-# define SUBCATEGORY(min, max, output) {if (testNumber >= min && testNumber <= max) output}
+# define SUBCATEGORY(min, max, output) {if (ac == 1 || (testNumber >= min && testNumber <= max)) output}
 
 using namespace std;
 

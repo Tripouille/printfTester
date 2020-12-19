@@ -16,8 +16,14 @@ char * testName;
 bool showTest = false;
 int main(int ac, char ** av)
 {
+
 	signal(SIGSEGV, sigsegv);
-	setlocale(LC_ALL, "");
+	#ifdef __unix__
+			setlocale(LC_ALL, "");
+	#endif
+	#ifdef __APPLE__
+		setlocale(LC_ALL, "en_US");
+	#endif
 	cout << FG_LYELLOW << "category: l" << RESET_ALL;
 	
 	testName = av[0];
