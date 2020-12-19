@@ -66,8 +66,9 @@ int main(int ac, char ** av)
 	TEST(27, print(" %lc ", u'௫'));
 	TEST(28, print(" %lc ", u'࿚'));
 	SUBCATEGORY(29, 30, cout << endl << FG_LGRAY << "subcategory: s" << RESET_ALL << endl;)
+	wchar_t	 empty[] = {0};
 	wchar_t	 s[] = {' ', u'ƀ', u'ɏ', u'ɐ', ' ', u'ʯ', ' ', u'ʰ', u'˿', ' ', u'ୟ', ' ', u'௫', ' ', ' ', u'࿚', 0};
-	TEST(29, print(" %ls ", ""));
+	TEST(29, print(" %ls ", empty));
 	TEST(30, print(" %ls ", s));
 	cout << ENDL;
 	return (0);
