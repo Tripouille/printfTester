@@ -16,7 +16,6 @@ char * testName;
 bool showTest = false;
 int main(int ac, char ** av)
 {
-
 	signal(SIGSEGV, sigsegv);
 	#ifdef __unix__
 			setlocale(LC_ALL, "");

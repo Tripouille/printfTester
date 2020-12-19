@@ -39,7 +39,7 @@ int main(int ac, char ** av)
 	TEST(14, checkn("%s%c%i42%n", "12345", 0, 42));
 	TEST(15, checkn("%s%c42%n", "12345", 'A'));
 	TEST(16, checkn("%s%d42%n", "12345", -42));
-	TEST(17, checkn<char>("%s%X42%n", "12345", 42));
+	TEST(17, checkn("%s%X42%n", "12345", 42));
 	cout << ENDL;
 	return (0);
 }
