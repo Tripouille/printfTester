@@ -40,22 +40,22 @@ int main(int ac, char ** av)
 	TEST(15, print(" %#-03.2x ", 1));
 	TEST(16, print(" %#-03.*x ", 2, 1));
 	SUBCATEGORY(17, 32, cout << endl << FG_LGRAY << "subcategory: X" << RESET_ALL << endl;)
-	TEST(17, print(" %#x ", 0));
-	TEST(18, print(" %#2x ", 0));
-	TEST(19, print(" %#02x ", 0));
-	TEST(20, print(" %#-03x ", 0));
-	TEST(21, print(" %#-03.x ", 0));
-	TEST(22, print(" %#-03.1x ", 0));
-	TEST(23, print(" %#-03.2x ", 0));
-	TEST(24, print(" %#-03.*x ", 2, 0));
-	TEST(25, print(" %#x ", 1));
-	TEST(26, print(" %#2x ", 1));
-	TEST(27, print(" %#02x ", 1));
-	TEST(28, print(" %#-03x ", 1));
-	TEST(29, print(" %#-03.x ", 1));
-	TEST(30, print(" %#-03.1x ", 1));
-	TEST(31, print(" %#-03.2x ", 1));
-	TEST(32, print(" %#-03.*x ", 2, 1));
+	TEST(17, print(" %#X ", 0));
+	TEST(18, print(" %#2X ", 0));
+	TEST(19, print(" %#02X ", 0));
+	TEST(20, print(" %#-03X ", 0));
+	TEST(21, print(" %#-03.X ", 0));
+	TEST(22, print(" %#-03.1X ", 0));
+	TEST(23, print(" %#-03.2X ", 0));
+	TEST(24, print(" %#-03.*X ", 2, 0));
+	TEST(25, print(" %#X ", 1));
+	TEST(26, print(" %#2X ", 1));
+	TEST(27, print(" %#02X ", 1));
+	TEST(28, print(" %#-03X ", 1));
+	TEST(29, print(" %#-03.X ", 1));
+	TEST(30, print(" %#-03.1X ", 1));
+	TEST(31, print(" %#-03.2X ", 1));
+	TEST(32, print(" %#-03.*X ", 2, 1));
 	SUBCATEGORY(33, 48, cout << endl << FG_LGRAY << "subcategory: e" << RESET_ALL << endl;)
 	TEST(33, print(" %#e ", 0.1));
 	TEST(34, print(" %#2e ", 0.1));
