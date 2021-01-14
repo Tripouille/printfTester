@@ -50,7 +50,7 @@ int main(int ac, char ** av)
 	TEST(25, print("0%c", 0));
 	TEST(26, print("%c", -129));
 	TEST(27, print("%c", 128));
-	TEST(28, print("%-*c", 10, "1"));
+	TEST(28, print("%-*c", 10, '1'));
 	TEST(29, print(" -%*c* -%-*c* ", -2, 0, 2, 0));
 	TEST(30, print(" -%-*c* -%-*c* ", 2, 0, -2, 0));
 	TEST(31, print(" -%*c* -%-*c* ", -1, 0, 1, 0));
