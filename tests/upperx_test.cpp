@@ -95,15 +95,15 @@ int main(int ac, char ** av)
 	TEST(70, print("%.0X", 5));
 	TEST(71, print("%.0X", 10));
 
-	TEST(72, print("%1.i", 0));
-	TEST(73, print("%2.i", 0));
-	TEST(74, print("%3.i", 0));
-	TEST(75, print("%1.1i", 0));
-	TEST(76, print("%1.2i", 0));
-	TEST(77, print("%1.3i", 0));
-	TEST(78, print("%1.1i", 0));
-	TEST(79, print("%2.2i", 0));
-	TEST(80, print("%3.3i", 0));
+	TEST(72, print("%1.X", 0));
+	TEST(73, print("%2.X", 0));
+	TEST(74, print("%3.X", 0));
+	TEST(75, print("%1.1X", 0));
+	TEST(76, print("%1.2X", 0));
+	TEST(77, print("%1.3X", 0));
+	TEST(78, print("%1.1X", 0));
+	TEST(79, print("%2.2X", 0));
+	TEST(80, print("%3.3X", 0));
 	cout << ENDL;
 	return (0);
 }
