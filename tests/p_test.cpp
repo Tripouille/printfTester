@@ -34,7 +34,7 @@ int main(int ac, char ** av)
 	TEST(9, print(" %-10p %-10p ", 1, -1));
 	TEST(10, print(" %10p %-10p ", 1, -1));
 	TEST(11, print(" %p %p ", 1, -1));
-	TEST(12, print(" %p %p ", 1, -1));
+	TEST(12, print(" %10p %-10p ", 0, 0));
 	TEST(13, print(" %p %p ", LONG_MIN, LONG_MAX));
 	TEST(14, print(" %p %p ", INT_MIN, INT_MAX));
 	TEST(15, print(" %p %p ", ULONG_MAX, -ULONG_MAX));
