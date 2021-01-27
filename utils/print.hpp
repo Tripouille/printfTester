@@ -5,7 +5,7 @@
 # include <sys/wait.h>
 # include <sstream>
 # define B_SIZE 4096
-# define TEST(nb, test) {if (ac == 1 || testNumber == nb) test; showLeaks();}
+# define TEST(nb, test) {if (ac == 1 || testNumber == nb) test;}
 # define SUBCATEGORY(min, max, output) {if (ac == 1 || (testNumber >= min && testNumber <= max)) output}
 
 using namespace std;
@@ -63,7 +63,6 @@ void print(const char * s, Args... args)
 			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << ENDL;
 			dup2(pipeOut, 1);
 		}
-
 		ft_printfRet = ft_printf(s, args...); write(1, &eof, 1);
 		if ((readReturn = read(p[0], ft_printfStr, B_SIZE)) < 0)
 			throw std::runtime_error("read failed");
@@ -73,6 +72,7 @@ void print(const char * s, Args... args)
 			cout << FG_BLUE << "ft_printf: [" << ft_printfStr << "] = " << ft_printfRet << ENDL;
 		else
 			check(!strcmp(ft_printfStr, printfStr) && printfRet == ft_printfRet);
+		showLeaks();
 		exit(EXIT_SUCCESS);
 	}
 	else
