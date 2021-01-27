@@ -4,7 +4,7 @@ TIMEOUT_US 		= 150000 #if you timeout you can try to increase this value
 SHELL			= bash
 
 UTILS_PATH		= utils/
-UTILS			= $(addprefix $(UTILS_PATH), sigsegv.cpp color.cpp check.cpp)
+UTILS			= $(addprefix $(UTILS_PATH), sigsegv.cpp color.cpp check.cpp leaks.cpp)
 
 TESTS_PATH		= tests/
 MANDATORY		= c s p d i u x upperx percent mix
@@ -14,30 +14,28 @@ BONUS			= n f g e l ll h hh sharp space +
 VBONUS			= $(addprefix v, $(BONUS))
 
 CC				= clang++ -std=c11 -Wno-everything
-CFLAGS			= -g3 -std=c++11 -I utils/ -I.. $(addprefix -I, $(shell find .. -regex ".*/.*\.h" | grep -oh ".*\/"))
-VALGRIND		= valgrind -q --leak-check=full
+CFLAGS			= -g3 -ldl -std=c++11 -I utils/ -I.. $(addprefix -I, $(shell find .. -regex ".*/.*\.h" | grep -oh ".*\/"))
 
 TEST_NUMBER := $(wordlist 2, $(words $(MAKECMDGOALS)), $(MAKECMDGOALS))
 $(eval $(TEST_NUMBER):;@:)
 
-$(MANDATORY): %: mandatory_start
-	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) -fsanitize=address $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && ./$*_test $(TEST_NUMBER) && rm -f $*_test
+UNAME = $(shell uname -s)
+ifeq ($(UNAME), Linux)
+    VALGRIND = valgrind -q --leak-check=full
+endif
 
-$(VMANDATORY): v%: mandatory_start
+$(MANDATORY): %: mandatory_start
 	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && $(VALGRIND) ./$*_test $(TEST_NUMBER) && rm -f $*_test
 
 $(BONUS): %: bonus_start
-	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) -fsanitize=address $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && ./$*_test $(TEST_NUMBER) && rm -f $*_test
-
-$(VBONUS): v%: bonus_start
 	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && $(VALGRIND) ./$*_test $(TEST_NUMBER) && rm -f $*_test
 
-mandatory_start: update message
+mandatory_start: update
 	@tput setaf 6
 	@make -C ..
 	@tput setaf 4 && echo [Mandatory]
 
-bonus_start: update message
+bonus_start: update
 	@tput setaf 6
 	@make bonus -C ..
 	@tput setaf 5 && echo [Bonus]
@@ -45,14 +43,9 @@ bonus_start: update message
 update:
 	@git pull
 
-message:
-
 m: $(MANDATORY) 
 b: $(BONUS)
 a: m b 
-vm: $(VMANDATORY) 
-vb: $(VBONUS)
-va: vm vb 
 
 clean:
 	make clean -C .. && rm -rf *_test && rm -rf *_test.dSYM
@@ -60,4 +53,4 @@ clean:
 fclean:
 	make fclean -C .. && rm -rf *_test && rm -rf *_test.dSYM
 
-.PHONY:	mandatory_start m vm bonus_start b vb a va clean update message fclean
+.PHONY:	mandatory_start m bonus_start b a clean update fclean
