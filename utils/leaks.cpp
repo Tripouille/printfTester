@@ -52,6 +52,7 @@ void showLeaks(void)
         std::vector<ptr>::iterator it = mallocList.begin(); std::vector<ptr>::iterator ite = mallocList.end();
         for (; it != ite; ++it)
             {std::ostringstream ss; ss << "[" << it->p << " : " << it->size << "] "; write(1, ss.str().c_str(), ss.str().size());}
+        if (showTest) std::cout << ENDL;
     }
     mallocList.clear();
 }

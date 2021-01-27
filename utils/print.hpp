@@ -138,6 +138,7 @@ void checkn(const char * s, Args... args)
 		}
 		else
 			check(!strcmp(ft_printfStr, printfStr) && printfRet == ft_printfRet && printfn == ft_printfn);
+		showLeaks();
 		exit(EXIT_SUCCESS);
 	}
 	else

@@ -22,6 +22,7 @@ struct ptr
 bool operator==(ptr const & p1, ptr const & p2);
 
 extern std::vector<ptr> mallocList;
+extern bool showTest;
 
 void mallocListAdd(void * p, size_t size);
 void mallocListRemove(void * p);
