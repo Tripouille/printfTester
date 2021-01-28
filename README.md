@@ -1,6 +1,6 @@
 # printfTester (2019+)
 
-Tester for the ft_printf project of 42 school.  
+Tester for the ft_printf project of 42 school (now with personalized leaks checking on mac, using valgrind on linux)  
 Clone this tester in your ft printf repository. (works on linux and mac, no undefined behavior tests, handles timeout and sigsegv)  
 ![alt text](https://i.imgur.com/qRfDYuU.png)
 
@@ -10,15 +10,8 @@ make m = launch mandatory tests
 make b = launch bonus tests  
 make a = launch mandatory tests + bonus tests
 
-make vm = launch mandatory tests with valgrind  
-make vb = launch bonus tests with valgrind 
-make va = launch mandatory tests + bonus tests with valgrind
-
 make [category] = launch associated category ex: make s  
-make v[category] = launch associated category with valgrind ex: make vs  
-
-make [category] [test number] = launch associated test in category ex: make s 42  
-make v[category] [test number] = launch associated test in category with valgrind ex: make vs 42  
+make [category] [test number] = launch associated test in category ex: make s 42   
 
 X = upperx  
 % = percent  
