@@ -43,6 +43,13 @@ bonus_start: update
 update:
 	@git pull
 
+$(addprefix docker, $(MANDATORY)) $(addprefix docker, $(BONUS)) dockerm dockerb dockera: docker%:
+	@docker rm -f mc > /dev/null 2>&1 || true
+	docker build -qt mi .
+	docker run -dti --name mc -v $(shell dirname $(shell pwd)):/project/ mi
+	docker exec -ti mc make $* $(TEST_NUMBER) -C printfTester || true
+	@docker rm -f mc > /dev/null 2>&1
+
 m: $(MANDATORY) 
 b: $(BONUS)
 a: m b 
