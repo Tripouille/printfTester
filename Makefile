@@ -30,18 +30,21 @@ $(MANDATORY): %: mandatory_start
 $(BONUS): %: bonus_start
 	@$(CC) $(CFLAGS) -D TIMEOUT_US=$(TIMEOUT_US) $(UTILS) $(TESTS_PATH)$*_test.cpp -L.. -lftprintf -o $*_test && $(VALGRIND) ./$*_test $(TEST_NUMBER) && rm -f $*_test
 
-mandatory_start: update
+mandatory_start: update checkmakefile
 	@tput setaf 6
 	@make -C ..
 	@tput setaf 4 && echo [Mandatory]
 
-bonus_start: update
+bonus_start: update checkmakefile
 	@tput setaf 6
 	@make bonus -C ..
 	@tput setaf 5 && echo [Bonus]
 
 update:
 	@git pull
+
+checkmakefile:
+	@ls .. | grep Makefile > /dev/null 2>&1 || (tput setaf 1 && echo Makefile not found. && exit 1)
 
 $(addprefix docker, $(MANDATORY)) $(addprefix docker, $(BONUS)) dockerm dockerb dockera: docker%:
 	@docker rm -f mc > /dev/null 2>&1 || true
