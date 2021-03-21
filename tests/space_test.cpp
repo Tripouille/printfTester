@@ -43,9 +43,9 @@ int main(int ac, char ** av)
 	TEST(18, print(" % 010.3d ", -1));
 	TEST(19, print(" % -010.3d ", -1));
 	TEST(20, print(" % -010.*d ", 42, -1));
-	TEST(21, print(" % .i ", 0));
-	TEST(22, print(" % .1i ", 0));
-	TEST(23, print(" % .2i ", 0));
+	TEST(21, print(" % .d ", 0));
+	TEST(22, print(" % .1d ", 0));
+	TEST(23, print(" % .2d ", 0));
 	SUBCATEGORY(24, 46, cout << endl << FG_LGRAY << "subcategory: i" << RESET_ALL << endl;)
 	TEST(24, print(" % i ", 0));
 	TEST(25, print(" % 2i ", 0));

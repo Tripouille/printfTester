@@ -60,7 +60,7 @@ void print(const char * s, Args... args)
 		{
 			dup2(stdOut, 1);
 			showTestInfos();
-			cout << FG_CYAN << "printf:    [" << printfStr << "] = " << printfRet << ENDL;
+			cout << FG_GREEN << "printf:    [" << printfStr << "] = " << printfRet << ENDL;
 			dup2(pipeOut, 1);
 		}
 		ft_printfRet = ft_printf(s, args...); write(1, &eof, 1);
@@ -69,7 +69,7 @@ void print(const char * s, Args... args)
 		ft_printfStr[readReturn - 1] = 0;
 		close(p[0]); close(pipeOut); dup2(stdOut, 1);
 		if (showTest)
-			cout << FG_BLUE << "ft_printf: [" << ft_printfStr << "] = " << ft_printfRet << ENDL;
+			cout << FG_LGREEN << "ft_printf: [" << ft_printfStr << "] = " << ft_printfRet << ENDL;
 		else
 			check(!strcmp(ft_printfStr, printfStr) && printfRet == ft_printfRet);
 		showLeaks();
