@@ -131,7 +131,7 @@ int main(int ac, char ** av)
 	TEST(105, print("%3e", 0.0));
 	TEST(106, print("%-3e", 0.0));
 	TEST(107, print("%03e", 0.0));
-	TEST(108, print("%0*e", -7, -54));
+	TEST(108, print("%0*e", -7, -54.0));
 	cout << ENDL;
 	return (0);
 }

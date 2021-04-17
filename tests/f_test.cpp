@@ -116,7 +116,7 @@ int main(int ac, char ** av)
 	TEST(90, print("%3f", 0.0));
 	TEST(91, print("%-3f", 0.0));
 	TEST(92, print("%03f", 0.0));
-	TEST(93, print("%0*f", -7, -54));
+	TEST(93, print("%0*f", -7, -54.0));
 	cout << ENDL;
 	return (0);
 }
