@@ -1,4 +1,4 @@
-TIMEOUT_US 		= 150000 #if you timeout you can try to increase this value
+TIMEOUT_US 		= 400000 #if you timeout you can try to increase this value
 
 .DEFAULT_GOAL	:= m
 SHELL			= bash
@@ -8,10 +8,8 @@ UTILS			= $(addprefix $(UTILS_PATH), sigsegv.cpp color.cpp check.cpp leaks.cpp)
 
 TESTS_PATH		= tests/
 MANDATORY		= c s p d i u x upperx percent mix
-VMANDATORY		= $(addprefix v, $(MANDATORY))
 
-BONUS			= n f g e l ll h hh sharp space +
-VBONUS			= $(addprefix v, $(BONUS))
+BONUS			= minus 0 dot sharp space +
 
 CC				= clang++ -std=c11 -Wno-everything
 CFLAGS			= -g3 -ldl -std=c++11 -I utils/ -I.. $(addprefix -I, $(shell find .. -regex ".*/.*\.h" | grep -oh ".*\/"))
@@ -21,7 +19,7 @@ $(eval $(TEST_NUMBER):;@:)
 
 UNAME = $(shell uname -s)
 ifeq ($(UNAME), Linux)
-    VALGRIND = valgrind -q --leak-check=full
+    VALGRIND = valgrind -q --leak-check=full --track-origins=yes
 endif
 
 $(MANDATORY): %: mandatory_start
@@ -47,10 +45,10 @@ checkmakefile:
 	@ls .. | grep Makefile > /dev/null 2>&1 || (tput setaf 1 && echo Makefile not found. && exit 1)
 
 $(addprefix docker, $(MANDATORY)) $(addprefix docker, $(BONUS)) dockerm dockerb dockera: docker%:
-	@docker rm -f mc > /dev/null 2>&1 || true
-	docker build -qt mi .
+	@docker rm -f mc > /dev/null 2>&1
+	docker build -t mi .
 	docker run -dti --name mc -v $(shell dirname $(shell pwd)):/project/ mi
-	docker exec -ti mc make $* $(TEST_NUMBER) -C printfTester || true
+	docker exec -ti mc make $* $(TEST_NUMBER) -C printfTester
 	@docker rm -f mc > /dev/null 2>&1
 
 m: $(MANDATORY) 

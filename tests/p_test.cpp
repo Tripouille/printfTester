@@ -8,7 +8,7 @@ extern "C"
 #include "sigsegv.hpp"
 #include "check.hpp"
 #include "print.hpp"
-#define TEST_LIMIT 17
+#define TEST_LIMIT 9
 
 int iTest = 1;
 int testNumber;
@@ -28,18 +28,10 @@ int main(int ac, char ** av)
 	TEST(3, print(" %p ", 15));
 	TEST(4, print(" %p ", 16));
 	TEST(5, print(" %p ", 17));
-	TEST(6, print(" %10p %10p ", 1, -1));
-	TEST(7, print(" %-10p %10p ", 1, -1));
-	TEST(8, print(" %10p %-10p ", 1, -1));
-	TEST(9, print(" %-10p %-10p ", 1, -1));
-	TEST(10, print(" %10p %-10p ", 1, -1));
-	TEST(11, print(" %p %p ", 1, -1));
-	TEST(12, print(" %10p %-10p ", 0, 0));
-	TEST(13, print(" %p %p ", LONG_MIN, LONG_MAX));
-	TEST(14, print(" %p %p ", INT_MIN, INT_MAX));
-	TEST(15, print(" %p %p ", ULONG_MAX, -ULONG_MAX));
-	TEST(16, print(" %*p %-*p ", -10, 101, -10, 42));
-	TEST(17, print(" .-0*%*p %-*p*0-. ", 11, 101, 11, 42));
+	TEST(6, print(" %p %p ", LONG_MIN, LONG_MAX));
+	TEST(7, print(" %p %p ", INT_MIN, INT_MAX));
+	TEST(8, print(" %p %p ", ULONG_MAX, -ULONG_MAX));
+	TEST(9, print(" %p %p ", 0, 0));
 	cout << ENDL;
 	return (0);
 }
