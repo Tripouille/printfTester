@@ -37,8 +37,9 @@ ln -s /goinfre/${USER}/docker ~/.docker
 
 
 # Outputs
-![alt text](https://i.imgur.com/FsgbPxO.png)  
-![alt text](https://i.imgur.com/qJfhyeL.png)  
+![alt text](https://i.imgur.com/UeI7PHa.png)  
+![alt text](https://i.imgur.com/GGJ6pbB.png)  
+![alt text](https://i.imgur.com/LNRlfab.png)  
 
 
 # Report bugs / Improvement
