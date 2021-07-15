@@ -60,7 +60,7 @@ int main(int ac, char ** av)
 	TEST(34, print(" %.11d ", LONG_MIN));
 	TEST(35, print(" %.12d ", UINT_MAX));
 	TEST(36, print(" %.13d ", ULONG_MAX));
-	TEST(37, print(" %.14d ", ULONG_LONG_MAX));
+	TEST(37, print(" %.14d ", ULLONG_MAX));
 	TEST(38, print(" %.8d %.9d %.10d %.11d %.12d %.13d %.14d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(39, 67, cout << endl << FG_LGRAY << "subcategory: i" << RESET_ALL << endl;)
 	TEST(39, print(" %.1i ", 0));
@@ -90,7 +90,7 @@ int main(int ac, char ** av)
 	TEST(63, print(" %.11i ", LONG_MIN));
 	TEST(64, print(" %.12i ", UINT_MAX));
 	TEST(65, print(" %.13i ", ULONG_MAX));
-	TEST(66, print(" %.14i ", ULONG_LONG_MAX));
+	TEST(66, print(" %.14i ", ULLONG_MAX));
 	TEST(67, print(" %.8i %.9i %.10i %.11i %.12i %.13i %.14i", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(68, 96, cout << endl << FG_LGRAY << "subcategory: u" << RESET_ALL << endl;)
 	TEST(68, print(" %.1u ", 0));
@@ -120,7 +120,7 @@ int main(int ac, char ** av)
 	TEST(92, print(" %.11u ", LONG_MIN));
 	TEST(93, print(" %.12u ", UINT_MAX));
 	TEST(94, print(" %.13u ", ULONG_MAX));
-	TEST(95, print(" %.14u ", ULONG_LONG_MAX));
+	TEST(95, print(" %.14u ", ULLONG_MAX));
 	TEST(96, print(" %.8u %.9u %.10u %.11u %.12u %.13u %.14u", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(97, 125, cout << endl << FG_LGRAY << "subcategory: x" << RESET_ALL << endl;)
 	TEST(97, print(" %.1x ", 0));
@@ -150,7 +150,7 @@ int main(int ac, char ** av)
 	TEST(121, print(" %.11x ", LONG_MIN));
 	TEST(122, print(" %.12x ", UINT_MAX));
 	TEST(123, print(" %.13x ", ULONG_MAX));
-	TEST(124, print(" %.14x ", ULONG_LONG_MAX));
+	TEST(124, print(" %.14x ", ULLONG_MAX));
 	TEST(125, print(" %.8x %.9x %.10x %.11x %.12x %.13x %.14x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(126, 154, cout << endl << FG_LGRAY << "subcategory: X" << RESET_ALL << endl;)
 	TEST(126, print(" %.1X ", 0));
@@ -180,7 +180,7 @@ int main(int ac, char ** av)
 	TEST(150, print(" %.11X ", LONG_MIN));
 	TEST(151, print(" %.12X ", UINT_MAX));
 	TEST(152, print(" %.13X ", ULONG_MAX));
-	TEST(153, print(" %.14X ", ULONG_LONG_MAX));
+	TEST(153, print(" %.14X ", ULLONG_MAX));
 	TEST(154, print(" %.8X %.9X %.10X %.11X %.12X %.13X %.14X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	cout << ENDL;
 	return (0);

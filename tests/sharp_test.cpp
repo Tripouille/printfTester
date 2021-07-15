@@ -50,7 +50,7 @@ int main(int ac, char ** av)
 	TEST(25, print(" %#x ", LONG_MIN));
 	TEST(26, print(" %#x ", UINT_MAX));
 	TEST(27, print(" %#x ", ULONG_MAX));
-	TEST(28, print(" %#x ", ULONG_LONG_MAX));
+	TEST(28, print(" %#x ", ULLONG_MAX));
 	TEST(29, print(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	TEST(30, print(" %#x%#x ", INT_MAX, INT_MIN));
 	SUBCATEGORY(31, 32, cout << endl << FG_LGRAY << "subcategory: X" << RESET_ALL << endl;)
@@ -81,7 +81,7 @@ int main(int ac, char ** av)
 	TEST(55, print(" %#X ", LONG_MIN));
 	TEST(56, print(" %#X ", UINT_MAX));
 	TEST(57, print(" %#X ", ULONG_MAX));
-	TEST(58, print(" %#X ", ULONG_LONG_MAX));
+	TEST(58, print(" %#X ", ULLONG_MAX));
 	TEST(59, print(" %#X %#X %#X %#X %#X %#X %#X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	cout << ENDL;
 	return (0);

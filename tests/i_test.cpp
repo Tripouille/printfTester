@@ -50,7 +50,7 @@ int main(int ac, char ** av)
 	TEST(25, print(" %i ", LONG_MIN));
 	TEST(26, print(" %i ", UINT_MAX));
 	TEST(27, print(" %i ", ULONG_MAX));
-	TEST(28, print(" %i ", ULONG_LONG_MAX));
+	TEST(28, print(" %i ", ULLONG_MAX));
 	TEST(29, print(" %i %i %i %i %i %i %i", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	cout << ENDL;
 	return (0);

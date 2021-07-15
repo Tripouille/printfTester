@@ -60,7 +60,7 @@ int main(int ac, char ** av)
 	TEST(34, print(" % d ", LONG_MIN));
 	TEST(35, print(" % d ", UINT_MAX));
 	TEST(36, print(" % d ", ULONG_MAX));
-	TEST(37, print(" % d ", ULONG_LONG_MAX));
+	TEST(37, print(" % d ", ULLONG_MAX));
 	TEST(38, print(" % d % d % d % d % d % d % d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(39, 67, cout << endl << FG_LGRAY << "subcategory: i" << RESET_ALL << endl;)
 	TEST(39, print(" % i ", 0));
@@ -90,7 +90,7 @@ int main(int ac, char ** av)
 	TEST(63, print(" % i ", LONG_MIN));
 	TEST(64, print(" % i ", UINT_MAX));
 	TEST(65, print(" % i ", ULONG_MAX));
-	TEST(66, print(" % i ", ULONG_LONG_MAX));
+	TEST(66, print(" % i ", ULLONG_MAX));
 	TEST(67, print(" % i % i % i % i % i % i % i", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	cout << ENDL;
 	return (0);
