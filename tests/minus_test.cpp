@@ -80,7 +80,7 @@ int main(int ac, char ** av)
 	TEST(54, print(" %-12d ", LONG_MIN));
 	TEST(55, print(" %-13d ", UINT_MAX));
 	TEST(56, print(" %-14d ", ULONG_MAX));
-	TEST(57, print(" %-15d ", ULONG_LONG_MAX));
+	TEST(57, print(" %-15d ", 9223372036854775807LL));
 	TEST(58, print(" %-9d %-10d %-11d %-12d %-13d %-14d %-15d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(59, 86, cout << endl << FG_LGRAY << "subcategory: i" << RESET_ALL << endl;)
 	TEST(59, print(" %-1i ", 0));
@@ -110,7 +110,7 @@ int main(int ac, char ** av)
 	TEST(82, print(" %-12i ", LONG_MIN));
 	TEST(83, print(" %-13i ", UINT_MAX));
 	TEST(84, print(" %-14i ", ULONG_MAX));
-	TEST(85, print(" %-15i ", ULONG_LONG_MAX));
+	TEST(85, print(" %-15i ", 9223372036854775807LL));
 	TEST(86, print(" %-9i %-10i %-11i %-12i %-13i %-14i %-15i", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(87, 115, cout << endl << FG_LGRAY << "subcategory: u" << RESET_ALL << endl;)
 	TEST(87, print(" %-1u ", 0));
@@ -140,7 +140,7 @@ int main(int ac, char ** av)
 	TEST(111, print(" %-12u ", LONG_MIN));
 	TEST(112, print(" %-13u ", UINT_MAX));
 	TEST(113, print(" %-14u ", ULONG_MAX));
-	TEST(114, print(" %-15u ", ULONG_LONG_MAX));
+	TEST(114, print(" %-15u ", 9223372036854775807LL));
 	TEST(115, print(" %-9u %-10u %-11u %-12u %-13u %-14u %-15u", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(116, 144, cout << endl << FG_LGRAY << "subcategory: x" << RESET_ALL << endl;)
 	TEST(116, print(" %-1x ", 0));
@@ -170,7 +170,7 @@ int main(int ac, char ** av)
 	TEST(140, print(" %-12x ", LONG_MIN));
 	TEST(141, print(" %-13x ", UINT_MAX));
 	TEST(142, print(" %-14x ", ULONG_MAX));
-	TEST(143, print(" %-15x ", ULONG_LONG_MAX));
+	TEST(143, print(" %-15x ", 9223372036854775807LL));
 	TEST(144, print(" %-9x %-10x %-11x %-12x %-13x %-14x %-15x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(145, 173, cout << endl << FG_LGRAY << "subcategory: X" << RESET_ALL << endl;)
 	TEST(145, print(" %-1X ", 0));
@@ -200,7 +200,7 @@ int main(int ac, char ** av)
 	TEST(169, print(" %-12X ", LONG_MIN));
 	TEST(170, print(" %-13X ", UINT_MAX));
 	TEST(171, print(" %-14X ", ULONG_MAX));
-	TEST(172, print(" %-15X ", ULONG_LONG_MAX));
+	TEST(172, print(" %-15X ", 9223372036854775807LL));
 	TEST(173, print(" %-9X %-10X %-11X %-12X %-13X %-14X %-15X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	cout << ENDL;
 	return (0);

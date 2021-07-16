@@ -49,7 +49,7 @@ int main(int ac, char ** av)
 	TEST(24, print(" %012d ", LONG_MIN));
 	TEST(25, print(" %013d ", UINT_MAX));
 	TEST(26, print(" %014d ", ULONG_MAX));
-	TEST(27, print(" %015d ", ULONG_LONG_MAX));
+	TEST(27, print(" %015d ", 9223372036854775807LL));
 	TEST(28, print(" %09d %010d %011d %012d %013d %014d %015d", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(29, 56, cout << endl << FG_LGRAY << "subcategory: i" << RESET_ALL << endl;)
 	TEST(29, print(" %01i ", 0));
@@ -79,7 +79,7 @@ int main(int ac, char ** av)
 	TEST(52, print(" %012i ", LONG_MIN));
 	TEST(53, print(" %013i ", UINT_MAX));
 	TEST(54, print(" %014i ", ULONG_MAX));
-	TEST(55, print(" %015i ", ULONG_LONG_MAX));
+	TEST(55, print(" %015i ", 9223372036854775807LL));
 	TEST(56, print(" %09i %010i %011i %012i %013i %014i %015i", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(57, 85, cout << endl << FG_LGRAY << "subcategory: u" << RESET_ALL << endl;)
 	TEST(57, print(" %01u ", 0));
@@ -109,7 +109,7 @@ int main(int ac, char ** av)
 	TEST(81, print(" %012u ", LONG_MIN));
 	TEST(82, print(" %013u ", UINT_MAX));
 	TEST(83, print(" %014u ", ULONG_MAX));
-	TEST(84, print(" %015u ", ULONG_LONG_MAX));
+	TEST(84, print(" %015u ", 9223372036854775807LL));
 	TEST(85, print(" %09u %010u %011u %012u %013u %014u %015u", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(86, 114, cout << endl << FG_LGRAY << "subcategory: x" << RESET_ALL << endl;)
 	TEST(86, print(" %01x ", 0));
@@ -139,7 +139,7 @@ int main(int ac, char ** av)
 	TEST(110, print(" %012x ", LONG_MIN));
 	TEST(111, print(" %013x ", UINT_MAX));
 	TEST(112, print(" %014x ", ULONG_MAX));
-	TEST(113, print(" %015x ", ULONG_LONG_MAX));
+	TEST(113, print(" %015x ", 9223372036854775807LL));
 	TEST(114, print(" %09x %010x %011x %012x %013x %014x %015x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	SUBCATEGORY(115, 143, cout << endl << FG_LGRAY << "subcategory: X" << RESET_ALL << endl;)
 	TEST(115, print(" %01X ", 0));
@@ -169,7 +169,7 @@ int main(int ac, char ** av)
 	TEST(139, print(" %012X ", LONG_MIN));
 	TEST(140, print(" %013X ", UINT_MAX));
 	TEST(141, print(" %014X ", ULONG_MAX));
-	TEST(142, print(" %015X ", ULONG_LONG_MAX));
+	TEST(142, print(" %015X ", 9223372036854775807LL));
 	TEST(143, print(" %09X %010X %011X %012X %013X %014X %015X", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	cout << ENDL;
 	return (0);
