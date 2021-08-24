@@ -33,6 +33,7 @@ int main(int ac, char ** av)
 	TEST(8, print(" %-1c %-2c %-3c ", '2', '1', 0));
 	TEST(9, print(" %-1c %-2c %-3c ", 0, '1', '2'));
 	SUBCATEGORY(10, 19, cout << endl << FG_LGRAY << "subcategory: s" << RESET_ALL << endl;)
+	TEST(10, print("%1s", ""));
 	TEST(11, print("%-1s", ""));
 	TEST(12, print(" %-2s", ""));
 	TEST(13, print("%-3s ", ""));
@@ -43,6 +44,7 @@ int main(int ac, char ** av)
 	TEST(18, print(" %-2s %-3s %-4s %-5s ", " - ", "", "4", ""));
 	TEST(19, print(" %-3s %-3s %-4s %-5s %-3s ", " - ", "", "4", "", "2 "));
 	SUBCATEGORY(20, 29, cout << endl << FG_LGRAY << "subcategory: p" << RESET_ALL << endl;)
+	TEST(20, print(" %2p ", -1));
 	TEST(21, print(" %-2p ", -1));
 	TEST(22, print(" %-2p ", 1));
 	TEST(23, print(" %-2p ", 15));
