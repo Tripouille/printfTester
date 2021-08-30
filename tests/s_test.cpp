@@ -9,7 +9,7 @@ extern "C"
 #include "check.hpp"
 #include "print.hpp"
 
-# define TEST_LIMIT 9
+# define TEST_LIMIT 10
 
 int iTest = 1;
 int testNumber;
@@ -33,6 +33,7 @@ int main(int ac, char ** av)
 	TEST(7, print(" %s %s ", " - ", ""));
 	TEST(8, print(" %s %s %s %s ", " - ", "", "4", ""));
 	TEST(9, print(" %s %s %s %s %s ", " - ", "", "4", "", "2 "));
+	TEST(10, print(" NULL %s NULL ", NULL));
 	cout << ENDL;
 	return (0);
 }
