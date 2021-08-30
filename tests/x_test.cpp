@@ -52,6 +52,8 @@ int main(int ac, char ** av)
 	TEST(27, print(" %x ", ULONG_MAX));
 	TEST(28, print(" %x ", 9223372036854775807LL));
 	TEST(29, print(" %x %x %x %x %x %x %x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+	TEST(30, print(" %x ", 42));
+	TEST(31, print(" %x ", -42));
 	cout << ENDL;
 	return (0);
 }
