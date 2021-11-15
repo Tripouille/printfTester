@@ -17,9 +17,10 @@ char * testName;
 bool showTest = false;
 int main(int ac, char ** av)
 {
+	char *s2 = "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
 	signal(SIGSEGV, sigsegv);
 	cout << FG_LYELLOW << "category: s" << RESET_ALL;
-	
+
 	testName = av[0];
 	if (ac != 1)
 		printTestNumber(av[1], TEST_LIMIT);
@@ -31,7 +32,7 @@ int main(int ac, char ** av)
 	TEST(5, print(" %s ", "-"));
 	TEST(6, print(" %s %s ", "", "-"));
 	TEST(7, print(" %s %s ", " - ", ""));
-	TEST(8, print(" %s %s %s %s ", " - ", "", "4", ""));
+	TEST(8, print(" %s %s %s %s %s", " - ", "", "4", "", s2));
 	TEST(9, print(" %s %s %s %s %s ", " - ", "", "4", "", "2 "));
 	TEST(10, print(" NULL %s NULL ", NULL));
 	cout << ENDL;
