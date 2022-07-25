@@ -35,6 +35,7 @@ int main(int ac, char ** av)
 	TEST(8, print(" %s %s %s %s %s", " - ", "", "4", "", s2));
 	TEST(9, print(" %s %s %s %s %s ", " - ", "", "4", "", "2 "));
 	TEST(10, print(" NULL %s NULL ", NULL));
+	TEST(11, print(0));
 	cout << ENDL;
 	return (0);
 }
