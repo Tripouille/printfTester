@@ -63,7 +63,7 @@ void print(const char * s, Args... args)
 			cout << FG_GREEN << "printf:    [" << printfStr << "] = " << printfRet << ENDL;
 			dup2(pipeOut, 1);
 		}
-		ft_printfRet = ft_printf(s, args...); write(1, &eof, 1);
+		ft_printfRet = printf(s, args...); write(1, &eof, 1);
 		if ((readReturn = read(p[0], ft_printfStr, B_SIZE)) < 0)
 			throw std::runtime_error("read failed");
 		ft_printfStr[readReturn - 1] = 0;
