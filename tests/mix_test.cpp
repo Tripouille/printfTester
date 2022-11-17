@@ -24,7 +24,7 @@ int main(int ac, char ** av)
 		printTestNumber(av[1], TEST_LIMIT);
 	cout << endl;
 	TEST(1, print("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", 'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0));
-	TEST(2, print(" %w %w%tw %d %% ", 2))
+	TEST(2, print(" %w %w%w %d %% ", 2))
 	cout << ENDL;
 	return (0);
 }
