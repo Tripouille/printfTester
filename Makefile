@@ -12,7 +12,7 @@ MANDATORY		= c s p d i u x upperx percent mix
 BONUS			= minus 0 dot sharp space +
 
 CC				= clang++ -std=c11 -Wno-everything
-CFLAGS			= -g3 -ldl -std=c++11 -I utils/ -I.. $(addprefix -I, $(shell find .. -regex ".*/.*\.h" | grep -oh ".*\/"))
+CFLAGS			= -g3 -ldl -std=c++11 -I utils/ -I.. $(addprefix -I, $(shell find .. -regex ".*/.*\.h" | grep -oh ".*/"))
 
 TEST_NUMBER := $(wordlist 2, $(words $(MAKECMDGOALS)), $(MAKECMDGOALS))
 $(eval $(TEST_NUMBER):;@:)
