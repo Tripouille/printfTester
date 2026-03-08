@@ -47,7 +47,8 @@ checkmakefile:
 $(addprefix docker, $(MANDATORY)) $(addprefix docker, $(BONUS)) dockerm dockerb dockera: docker%:
 	@docker rm -f mc > /dev/null 2>&1
 	docker build -t mi .
-	docker run -dti --name mc -v $(shell dirname $(shell pwd)):/project/ mi
+	docker run -dti --name mc -v $(shell dirname $(shell pwd)):/project/ -v $(HOME)/.ssh:/root/.ssh:ro mi
+	docker exec mc make -C /project re
 	docker exec -ti mc make $* $(TEST_NUMBER) -C printfTester
 	@docker rm -f mc > /dev/null 2>&1
 
